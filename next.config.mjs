@@ -6,5 +6,9 @@ export default function nextConfig(phase) {
     throw new Error('Inicie o desenvolvimento com npm run dev para proteger .next-dev contra servidores simultâneos.');
   }
   // Production builds must not overwrite the assets of a running dev server.
-  return { distDir: phase === PHASE_DEVELOPMENT_SERVER ? '.next-dev' : '.next' };
+  return {
+    output: 'export',
+    images: { unoptimized: true },
+    distDir: phase === PHASE_DEVELOPMENT_SERVER ? '.next-dev' : '.next',
+  };
 }
