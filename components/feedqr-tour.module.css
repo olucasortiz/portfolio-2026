@@ -1,0 +1,76 @@
+.tour { margin-top: 36px; --accent: #b9ff47; }
+.topBar { display: flex; justify-content: space-between; align-items: center; gap: 24px; margin-bottom: 18px; }
+.topBar p { margin: 0; font-size: 14px; line-height: 1.6; color: #c6cdd5; }
+.topBar .counter { font-family: 'IBM Plex Mono', monospace; color: #b9ff47; white-space: nowrap; }
+.frame { position: relative; height: clamp(360px, 64svh, 660px); overflow: hidden; border: 1px solid #53606b; background: #1a1e24; }
+.layer { position: absolute; inset: 0; }
+.incoming { opacity: 0; pointer-events: none; }
+.inspection { width: 100%; height: 100%; overflow: auto; overscroll-behavior: contain; scrollbar-color: #a8b0ba #1a1e24; }
+.inspection:focus-visible { outline: 3px solid #b9ff47; outline-offset: -4px; }
+.desktopImage { display: block; width: 100%; min-width: 960px; height: auto; }
+.responsiveImage { display: block; width: min(100%, 360px); height: auto; margin-inline: auto; }
+.inspectHint { margin: 14px 0 0; color: #c6cdd5; font-size: 14px; line-height: 1.65; }
+.lower { display: grid; grid-template-columns: 1.5fr 1fr; align-items: start; gap: 40px; margin-top: 32px; }
+.stories { display: grid; min-height: 144px; }
+.story { grid-area: 1 / 1; min-width: 0; }
+.story h3 { margin: 0; font: 600 clamp(28px, 3vw, 44px)/1.15 'Space Grotesk', sans-serif; letter-spacing: -.04em; }
+.story p { margin: 16px 0 0; max-width: 740px; color: #c6cdd5; font-size: 16px; line-height: 1.8; }
+.controls { display: flex; align-items: center; justify-content: end; flex-wrap: wrap; gap: 14px; }
+.controls button { width: 56px; height: 56px; display: inline-grid; place-items: center; border: 1px solid #a8b0ba; border-radius: 50%; color: #f2f4f5; background: #101216; cursor: pointer; }
+.controls .next { background: #b9ff47; color: #101216; border-color: #b9ff47; }
+.controls button svg { transition: transform 220ms cubic-bezier(.2,.7,.2,1); }
+.controls button:focus-visible, .enlarge:focus-visible { outline: 2px solid #b9ff47; outline-offset: 6px; }
+.controls .previous:focus-visible svg { transform: translateX(-3px); }
+.controls .next:focus-visible svg { transform: translateX(3px); }
+.enlarge { display: inline-flex; align-items: center; gap: 10px; justify-content: center; min-height: 48px; margin-left: 8px; font-size: 14px; border-bottom: 1px solid #53606b; }
+.enlarge svg { color: #b9ff47; flex-shrink: 0; }
+.loading { min-height: 24px; color: #c6cdd5; font-size: 14px; margin: 20px 0 0; }
+.imageError { margin: 0; padding: 32px; color: #f2f4f5; font-size: 16px; line-height: 1.8; }
+.inspection:has(.imageError) img { display: none; }
+.fallback { margin-top: 40px; }
+.fallback h3 { font: 600 28px 'Space Grotesk', sans-serif; }
+.fallback ol { padding-left: 20px; }
+.fallback li + li { margin-top: 28px; }
+.fallback a { text-decoration: underline; text-underline-offset: 6px; color: #b9ff47; font-size: 16px; line-height: 1.8; }
+.fallback p { color: #c6cdd5; font-size: 16px; line-height: 1.8; }
+.dialog { width: min(calc(100% - 40px), 1520px); max-height: calc(100svh - 40px); padding: 0; margin: auto; color: #f2f4f5; border: 1px solid #53606b; background: #101216; }
+.dialog::backdrop { background: #101216e8; }
+.dialogBar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 20px; }
+.dialogBar p { margin: 0; font-size: 16px; line-height: 1.6; }
+.dialogBar button { display: inline-grid; place-items: center; flex-shrink: 0; width: 44px; height: 44px; background: transparent; border: 1px solid #a8b0ba; color: #f2f4f5; cursor: pointer; }
+.dialogViewport { max-height: calc(100svh - 224px); overflow: auto; padding: 12px; background: #1a1e24; overscroll-behavior: contain; scrollbar-color: #a8b0ba #1a1e24; }
+.desktopOriginal { display: block; width: 1440px; max-width: none; height: auto; margin-inline: auto; }
+.responsiveOriginal { display: block; width: 360px; max-width: none; height: auto; margin-inline: auto; }
+.dialogFooter { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 16px 20px; }
+.dialogFooter p { margin: 0; color: #c6cdd5; font-size: 14px; line-height: 1.7; }
+.dialogFooter a { display: inline-flex; min-height: 44px; align-items: center; white-space: nowrap; font-size: 14px; text-decoration: underline; text-underline-offset: 6px; }
+@media (hover: hover) and (pointer: fine) {
+  .controls .previous:hover svg { transform: translateX(-3px); }
+  .controls .next:hover svg { transform: translateX(3px); }
+  .controls .previous:hover { border-color: #b9ff47; }
+  .enlarge:hover { border-color: #b9ff47; }
+}
+@media (max-width: 1000px) {
+  .lower { grid-template-columns: 1fr; gap: 24px; }
+  .controls { justify-content: start; }
+  .stories { min-height: 140px; }
+}
+@media (max-width: 700px) {
+  .frame { height: clamp(340px, 55svh, 520px); }
+  .topBar { gap: 16px; }
+  .lower { margin-top: 28px; }
+  .stories { min-height: 240px; grid-row: 2; }
+  .controls { grid-row: 1; }
+  .controls { gap: 12px; }
+  .controls button { width: 52px; height: 52px; }
+  .enlarge { margin-left: 0; }
+  .dialog { width: calc(100% - 20px); max-height: calc(100svh - 20px); }
+  .dialogBar { padding-inline: 12px; }
+  .dialogViewport { padding: 8px; max-height: calc(100svh - 260px); }
+  .dialogFooter { flex-direction: column; align-items: start; gap: 8px; padding: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .controls button svg { transition: none; }
+  .controls .previous:hover svg, .controls .next:hover svg,
+  .controls .previous:focus-visible svg, .controls .next:focus-visible svg { transform: none; }
+}

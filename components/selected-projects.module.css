@@ -1,0 +1,111 @@
+﻿.selected { padding-block: 112px 128px; }
+.sectionHeading { margin-bottom: 64px; }
+.sectionHeading h2 { margin: 0; padding-block: .06em; overflow: clip; font: 500 clamp(26px, 3vw, 42px)/1.1 'Space Grotesk', sans-serif; letter-spacing: -.05em; }
+.sectionHeading h2 span { display: block; }
+
+/* Lion only. Equipment, authentic logo and real display occupy separate planes.
+   The dashboard has no tint, blur or invented UI. */
+.lion { margin-top: clamp(48px, 6vw, 88px); background: #0b0e10; position: relative; overflow: hidden; }
+.lionRail { left: max(18px, calc((100vw - 1820px) / 2)); }
+.scene { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.scene::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(151deg, transparent 31%, #ffffff03 31.1%, transparent 52%),
+    linear-gradient(180deg, #080a0c99, transparent 32%, transparent 88%, #080a0c80);
+}
+.gymEnvWrapper { position: absolute; inset: -18% 0 0 auto; width: 68%; overflow: hidden; mask-image: linear-gradient(to right, transparent, #0009 22%, #000 40%); }
+.gymEnv { object-fit: cover; object-position: left center; opacity: 1; }
+.gymLighting { position: absolute; inset: 0; background: radial-gradient(ellipse 15% 24% at 89% 43%, #e523171a, transparent 75%); }
+.floorGlow { position: absolute; bottom: 0; right: 0; width: 69%; height: 19%; background: radial-gradient(ellipse at 66% 80%, #f2381929, transparent 70%); }
+.lionStage {
+  position: relative; width: min(89.4%, 1710px); margin-inline: auto; display: grid;
+  grid-template-columns: minmax(0, 30fr) minmax(0, 70fr);
+  grid-template-areas: 'heading art' 'intro art' 'details art';
+  grid-template-rows: auto auto 1fr; column-gap: clamp(28px, 2.4vw, 46px); align-items: start;
+  padding-block: clamp(52px, 4.2vw, 80px) clamp(64px, 5vw, 96px);
+}
+.lionHeading { grid-area: heading; container-type: inline-size; width: 137%; position: relative; z-index: 1; }
+.lionHeading h3 { margin: 0; color: #f2f4f5; font: 700 min(25cqw, 184px)/.88 'Space Grotesk', sans-serif; letter-spacing: -.065em; }
+.lionMask { display: block; overflow: clip; width: max-content; max-width: 100%; padding: .035em .06em .09em .015em; margin: -.035em -.06em -.09em -.015em; }
+.lionMask > span { display: block; }
+.fitness { color: #b9ff47; margin-top: .02em; }
+.intro { grid-area: intro; margin-top: clamp(28px, 2.6vw, 44px); position: relative; z-index: 1; }
+.lionOverview { max-width: 29em; margin: 0; font-size: clamp(17px, 1.5vw, 21px); line-height: 1.55; letter-spacing: -.015em; text-wrap: pretty; color: #dce0e5; }
+.action { margin-top: 28px; }
+.technicalContext { grid-area: details; margin-top: clamp(28px, 2.6vw, 44px); padding-top: 24px; border-top: 1px solid #596067; max-width: 32em; }
+.attribution { margin: 0; font-size: 16px; line-height: 1.65; color: var(--reading-muted, #a1aab5); }
+.context { margin: 20px 0 0; }
+.context dt { color: #b9ff47; font-size: 14px; text-transform: uppercase; letter-spacing: .04em; margin-bottom: 6px; }
+.context dd { margin: 0; color: var(--reading-muted, #a1aab5); font-size: 15px; line-height: 1.65; }
+.pending { margin: 24px 0 0; max-width: 420px; font-size: 15px; line-height: 1.7; color: var(--reading-muted, #a1aab5); }
+.art { grid-area: art; align-self: start; position: relative; width: 100%; display: flex; flex-direction: column; align-items: center; padding-bottom: 1%; }
+/* Positive clearance protects FITNESS from the display's rising upper edge. */
+.mascotWrapper { position: relative; width: 45%; max-width: 530px; margin-inline: auto; margin-bottom: 1.5%; }
+.mascot { display: block; width: 100%; height: auto; }
+.screen { position: relative; z-index: 2; width: 100%; margin: 0; transform-origin: 50% 50%; }
+.bezel {
+  --tilt-y: -11deg; --frame: clamp(9px, 1vw, 18px);
+  position: relative; padding: var(--frame); border-radius: clamp(13px, 1.4vw, 24px);
+  transform-origin: 50% 50%; transform: perspective(1700px) rotateY(var(--tilt-y)) rotateX(5deg) rotate(-2.8deg);
+  background: linear-gradient(135deg, #373b3f, #090b0d 35%, #141619 78%, #2a2020);
+  border: 1px solid #8a8f9060; border-top-color: #ff806abf; border-left-color: #ff513bdb;
+  box-shadow: inset 0 1px 0 #ffc6b87d, inset 2px 0 1px #ff462340,
+    1px 2px 0 #24282a, 2px 4px 0 #171a1c, 3px 6px 0 #0c0e10,
+    4px 8px 0 #060809, -5px 0 15px -8px #ff3d1d,
+    0 2px 22px -13px #ff4427, 8px 26px 34px -14px #000e;
+}
+.bezel::after {
+  content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+  /* Light lands on the physical frame, never on the screenshot. */
+  box-shadow: -1px -1px 1px #ff6f4c9c, inset 0 -2px 1px #000;
+}
+.bezel img { display: block; width: 100%; height: auto; border-radius: clamp(6px, .7vw, 12px); box-shadow: 0 0 0 1px #000; }
+.screenContactShadow { position: absolute; bottom: -26px; left: 0; right: -1%; height: 32px; background: radial-gradient(ellipse, #000 10%, #000b 44%, transparent 72%); filter: blur(4px); pointer-events: none; z-index: -1; }
+.screenFloorGlow { position: absolute; bottom: -48px; left: 4%; right: 0; height: 64px; background: radial-gradient(ellipse 62% 30% at 65% 60%, #f7432566, #ca240e24 52%, transparent 80%); filter: blur(6px); pointer-events: none; z-index: -2; }
+@media (max-width: 1100px) {
+  .selected { padding-block: 88px 96px; }
+  .lionStage { width: calc(100% - 72px); grid-template-columns: minmax(0, 36fr) minmax(0, 64fr); column-gap: 28px; }
+  .lionHeading { width: 118%; }
+  .art { align-self: center; }
+  .mascotWrapper { width: 55%; margin-bottom: 5%; }
+  .bezel { --tilt-y: -8deg; transform: perspective(1400px) rotateY(var(--tilt-y)) rotateX(4deg) rotate(-2deg); }
+}
+@media (max-width: 900px) {
+  .lionStage { width: calc(100% - 56px); grid-template-columns: 1fr; grid-template-areas: 'heading' 'intro' 'art' 'details'; grid-template-rows: auto; padding-block: 56px 64px; }
+  .lionHeading { width: min(100%, 560px); }
+  .gymEnvWrapper { top: 28%; bottom: 15%; width: 100%; mask-image: linear-gradient(180deg, transparent, #000 24%, #000 80%, transparent); }
+  .gymEnv { object-position: 34% center; opacity: .86; }
+  .art { margin-top: 40px; padding-inline: 8px; }
+  .mascotWrapper { width: 58%; margin-bottom: 4%; }
+  .bezel { --tilt-y: -6deg; transform: perspective(1400px) rotateY(var(--tilt-y)) rotateX(3deg) rotate(-1.8deg); }
+  .technicalContext { margin-top: 56px; max-width: none; }
+}
+@media (max-width: 700px) {
+  .selected { padding-block: 72px 80px; }
+  .sectionHeading { margin-bottom: 40px; }
+  .lion { margin-top: 40px; }
+  .lionStage { width: calc(100% - 40px); }
+  .lionOverview { font-size: 18px; }
+  .intro { margin-top: 24px; }
+  .art { margin-top: 32px; padding-inline: 0; }
+  .mascotWrapper { width: 76%; margin-bottom: 3%; }
+  .bezel { --frame: 6px; transform: perspective(900px) rotateY(-3deg) rotateX(2deg) rotate(-1deg); }
+  .screenFloorGlow { height: 44px; bottom: -32px; }
+}
+
+@media (min-width: 1101px) {
+  .selected { padding-block: var(--desktop-section-space) 80px; }
+  .sectionHeading { margin-bottom: 40px; }
+  .sectionHeading h2 { font-size: clamp(28px, 2.6vw, 34px); }
+  .lion { margin-top: 48px; }
+  .lionStage { width: min(calc(100% - 2 * var(--desktop-gutter)), var(--desktop-project-max)); column-gap: 28px; padding-block: 36px 40px; }
+  .lionOverview { font-size: 18px; line-height: 1.6; }
+  .intro { margin-top: 24px; }
+  .action { margin-top: 20px; }
+  .technicalContext { margin-top: 24px; padding-top: 20px; }
+  .context { margin-top: 14px; }
+  .lionRail { left: max(18px, calc((100vw - 1440px) / 2)); }
+}
+@media (min-width: 1101px) and (max-height: 800px) {
+  .lionStage { padding-block: 28px 32px; }
+}

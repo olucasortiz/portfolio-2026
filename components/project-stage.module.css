@@ -1,0 +1,59 @@
+.stage {
+  --accent: #b9ff47;
+  position: relative;
+  isolation: isolate;
+  border-block: 1px solid #303640;
+  background: #101216;
+}
+.rail {
+  position: absolute;
+  top: 76px;
+  left: max(18px, calc((100vw - 1540px) / 2));
+  bottom: 76px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  width: 20px;
+  color: #a8b0ba;
+  font: 11px/1 'IBM Plex Mono', monospace;
+  pointer-events: none;
+}
+.rail::after { content: ''; width: 1px; flex: 1; background: linear-gradient(#303640, #b9ff4790 50%, #303640); }
+.category { margin: 0 0 24px; color: #c6cdd5; font: 12px/1.6 'IBM Plex Mono', monospace; letter-spacing: .08em; text-transform: uppercase; }
+.action {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  width: max-content;
+  max-width: 100%;
+  min-height: 48px;
+  font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  -webkit-tap-highlight-color: #b9ff4730;
+}
+.actionIcon { display: grid; place-items: center; flex: 0 0 46px; width: 46px; height: 46px; border-radius: 50%; background: #b9ff47; color: #101216; }
+.actionIcon svg { transition: transform 220ms cubic-bezier(.2,.7,.2,1); }
+.actionText { position: relative; padding-block: 10px; }
+.actionText::after { content: ''; position: absolute; bottom: 3px; inset-inline: 0; height: 1px; background: #b9ff47; transform: scaleX(0); transform-origin: left; transition: transform 220ms ease; }
+.action:focus-visible { outline: 2px solid #b9ff47; outline-offset: 6px; border-radius: 2px; }
+.action:focus-visible .actionIcon svg { transform: translateX(4px); }
+.action:focus-visible .actionText::after { transform: scaleX(1); }
+@media (hover: hover) and (pointer: fine) {
+  .action:hover .actionIcon svg { transform: translateX(4px); }
+  .action:hover .actionText::after { transform: scaleX(1); }
+}
+@media (max-width: 1100px) { .rail { display: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .actionIcon svg, .actionText::after { transition: none; }
+  .action:hover .actionIcon svg, .action:focus-visible .actionIcon svg { transform: none; }
+}
+
+@media (min-width: 1101px) {
+  .rail { top: 48px; bottom: 48px; left: max(18px, calc((100vw - 1320px) / 2)); gap: 20px; }
+  .category { margin-bottom: 20px; }
+  .action { gap: 14px; }
+  .actionIcon { flex-basis: 44px; width: 44px; height: 44px; }
+}

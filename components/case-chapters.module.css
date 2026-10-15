@@ -1,0 +1,35 @@
+.navigation { position: sticky; top: 104px; align-self: start; z-index: 12; min-width: 0; color: #c6cdd5; }
+.label { margin: 0 0 20px; font-size: 14px; line-height: 1.6; }
+.links { list-style: none; margin: 0; padding: 0; }
+.desktop .links { max-height: calc(100svh - 210px); overflow-y: auto; }
+.links a { display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 8px 8px 8px 14px; border-left: 1px solid #53606b; font-size: 14px; line-height: 1.5; transition: color 200ms, border-color 200ms; }
+.links a[aria-current='location'] { color: #b9ff47; border-left: 3px solid #b9ff47; padding-left: 12px; }
+.links a:hover { color: #f2f4f5; border-color: #b9ff47; }
+.links a:focus-visible, .mobile summary:focus-visible { outline: 2px solid #b9ff47; outline-offset: -2px; }
+.progress { width: 2px; height: 72px; margin: 28px 0 0 14px; background: #53606b; overflow: hidden; }
+.progress span { display: block; width: 100%; height: 100%; background: #b9ff47; transform: scaleY(var(--chapter-progress, 0)); transform-origin: top; }
+.mobile { display: none; }
+@media (max-width: 1100px) {
+  .navigation { top: 76px; margin-inline: -28px; padding-inline: 28px; background: #101216; border-bottom: 1px solid #53606b; }
+  .desktop { display: none; }
+  .mobile { display: block; position: relative; }
+  .mobile summary { display: flex; justify-content: space-between; align-items: center; gap: 20px; min-height: 60px; padding-block: 8px; list-style: none; cursor: pointer; }
+  .mobile summary::-webkit-details-marker { display: none; }
+  .mobile summary span { display: flex; flex-wrap: wrap; gap: 6px 20px; font-size: 14px; line-height: 1.5; }
+  .mobile strong { color: #b9ff47; font-weight: 500; }
+  .mobile summary svg { flex-shrink: 0; transition: transform 200ms ease; }
+  .mobile[open] summary svg { transform: rotate(180deg); }
+  .mobile .links { position: absolute; top: 100%; left: -28px; right: -28px; padding: 12px 28px 20px; max-height: min(60svh, 480px); overflow-y: auto; background: #101216; border-bottom: 1px solid #53606b; box-shadow: 0 16px 24px #10121680; }
+  .mobile .links a { min-height: 48px; font-size: 16px; }
+  .progress { width: 100%; height: 2px; margin: 0; }
+  .progress span { transform: scaleX(var(--chapter-progress, 0)); transform-origin: left; }
+}
+@media (max-width: 700px) {
+  .navigation { top: 66px; margin-inline: -20px; padding-inline: 20px; }
+  .mobile .links { left: -20px; right: -20px; padding-inline: 20px; }
+}
+@media (prefers-reduced-motion: reduce) { .links a, .mobile summary svg { transition: none; } }
+
+@media (min-width: 1101px) {
+  .navigation { top: var(--desktop-chapter-offset); }
+}

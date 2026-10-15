@@ -1,0 +1,9 @@
+.resources { margin-block: -44px 72px; }
+.resources h2 { margin: 0 0 20px; font: 500 22px 'Space Grotesk', sans-serif; letter-spacing: -.035em; }
+.resources ul { display: flex; flex-wrap: wrap; gap: 16px 36px; padding: 0; margin: 0; list-style: none; }
+.resources a { display: inline-flex; align-items: center; min-height: 44px; gap: 10px; font-size: 14px; text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 7px; }
+.resources svg { color: var(--accent); }
+@media (max-width: 700px) {
+  .resources { margin-block: -16px 40px; }
+  .resources ul { flex-direction: column; gap: 8px; }
+}

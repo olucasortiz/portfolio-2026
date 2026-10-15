@@ -1,0 +1,93 @@
+.experience { --accent: #b9ff47; padding-block: clamp(80px, 9vw, 132px); background: #101216; color: #f2f4f5; border-top: 1px solid #303640; }
+.layout { display: grid; grid-template-columns: minmax(0, .7fr) minmax(0, 2.5fr); align-items: start; gap: clamp(32px, 4vw, 64px); }
+.heading { padding-top: 48px; }
+.heading h2 { margin: 0; font: 600 clamp(36px, 3.5vw, 52px)/1.1 'Space Grotesk', sans-serif; letter-spacing: -.045em; }
+.introduction { margin: 28px 0 0; color: #d1d8df; font-size: 18px; line-height: 1.75; }
+.journey { min-width: 0; }
+.instruction { margin: 0 0 24px; color: #d1d8df; font-size: 15px; line-height: 1.6; }
+.timeline { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.65fr); grid-template-rows: repeat(3, minmax(140px, auto)); column-gap: 32px; }
+.item { display: contents; }
+.entry { grid-column: 1; display: flex; position: relative; align-items: center; gap: 20px; min-height: 140px; width: 100%; padding: 28px 4px 28px 0; text-align: left; color: #d1d8df; background: transparent; border: 0; cursor: pointer; }
+.entry::before { content: ''; position: absolute; top: 0; bottom: 0; left: 9px; width: 1px; background: #53606b; }
+.marker { z-index: 1; display: block; width: 19px; height: 19px; flex: 0 0 19px; border: 1px solid #a8b0ba; border-radius: 50%; background: #101216; transition: background 200ms, border-color 200ms; }
+.entry[data-active='true']::before { background: #b9ff47; }
+.entry[data-active='true'] .marker { background: #b9ff47; border-color: #b9ff47; outline: 1px solid #b9ff47; outline-offset: 5px; }
+.entryText { display: flex; min-width: 0; flex-direction: column; gap: 10px; overflow-wrap: anywhere; }
+.date { font: 15px/1.7 'IBM Plex Mono', monospace; }
+.entryName { font: 500 clamp(21px, 1.7vw, 26px)/1.2 'Space Grotesk', sans-serif; letter-spacing: -.03em; color: #f2f4f5; }
+.role { font-size: 15px; line-height: 1.65; }
+.entry[data-active='true'] .entryName { color: #b9ff47; }
+.entry[data-active='true'] .date { color: #b9ff47; }
+.entry:focus-visible { outline: 2px solid #b9ff47; outline-offset: 6px; }
+.toggle { margin-left: auto; flex-shrink: 0; color: #b9ff47; }
+.panel { grid-column: 2; grid-row: 1 / span 3; display: grid; grid-template-rows: 1fr; visibility: hidden; opacity: 0; pointer-events: none; transition: opacity 220ms ease, visibility 0s 220ms; }
+.panel[data-active='true'] { visibility: visible; opacity: 1; pointer-events: auto; transition-delay: 0s; }
+.panelInner { min-height: 0; overflow: hidden; }
+.panelContent { padding: 32px; border: 1px solid #53606b; border-radius: 8px; background: #1a1e24; }
+.detailDate { margin: 18px 0 0; color: #d1d8df; font: 16px/1.7 'IBM Plex Mono', monospace; }
+.panel h3 { margin: 14px 0 0; font: 600 clamp(32px, 3vw, 44px)/1.12 'Space Grotesk', sans-serif; letter-spacing: -.04em; overflow-wrap: break-word; }
+.detailRole { color: #b9ff47; font-size: 16px; line-height: 1.65; margin: 0; }
+.description { max-width: 640px; margin: 30px 0 0; font-size: 19px; line-height: 1.75; }
+.description p { margin: 0; }
+.description p + p { margin-top: 20px; }
+.panel h4 { margin: 32px 0 20px; padding-top: 24px; border-top: 1px solid #53606b; font-size: 16px; font-weight: 500; color: #f2f4f5; }
+.panel ul { padding: 0; margin: 0; list-style: none; }
+.panel li { position: relative; padding-left: 21px; font-size: 17px; line-height: 1.75; color: #e0e5eb; }
+.panel li + li { margin-top: 14px; }
+.panel li::before { content: ''; position: absolute; top: .65em; left: 0; width: 5px; height: 5px; border-radius: 50%; background: #b9ff47; }
+.action { display: inline-flex; align-items: center; gap: 14px; min-height: 48px; margin-top: 48px; font-size: 15px; border-bottom: 1px solid #b9ff47; }
+.action svg { color: #b9ff47; transition: transform 220ms ease; }
+.action:hover svg, .action:focus-visible svg { transform: translate(3px, -3px); }
+.fallback article { border-top: 1px solid #53606b; padding-block: 24px; }
+.fallback h3 { font: 600 30px 'Space Grotesk', sans-serif; }
+.fallback p { color: #d1d8df; font-size: 18px; line-height: 1.8; }
+@media (max-width: 1200px) {
+  .layout { grid-template-columns: 1fr; gap: 40px; }
+  .heading { display: grid; grid-template-columns: 1fr 1fr; align-items: end; gap: 40px; padding-top: 0; }
+  .introduction { margin: 0; }
+  .timeline { grid-template-columns: minmax(0, .8fr) minmax(0, 1.6fr); column-gap: 48px; }
+}
+@media (max-width: 800px) {
+  .heading { grid-template-columns: 1fr; gap: 24px; }
+  .timeline { display: block; }
+  .item { display: block; }
+  .entry { min-height: 120px; padding-block: 24px; }
+  .panel { grid-template-rows: 0fr; transition: grid-template-rows 350ms cubic-bezier(.2,.7,.2,1), opacity 220ms ease, visibility 0s 350ms; }
+  .panel[data-active='true'] { grid-template-rows: 1fr; }
+  .panelContent { padding: 24px; margin: 4px 0 28px; }
+  .panel h3 { font-size: clamp(30px, 8vw, 40px); }
+  .description { font-size: 18px; margin-top: 26px; }
+  .detailDate { font-size: 15px; }
+  .panel li { font-size: 17px; }
+  .entryName { font-size: 22px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marker, .panel, .action svg { transition: none; }
+  .action:hover svg, .action:focus-visible svg { transform: none; }
+}
+
+@media (min-width: 1101px) {
+  .experience { padding-block: var(--desktop-section-space); }
+  .layout { gap: var(--desktop-block-gap); }
+  .heading { padding-top: 32px; }
+  .heading h2 { font-size: var(--desktop-section-title); }
+  .introduction { font-size: 17px; margin-top: 22px; line-height: 1.7; }
+  .instruction { margin-bottom: 20px; }
+  .timeline { grid-template-rows: repeat(3, minmax(116px, auto)); column-gap: 24px; }
+  .entry { min-height: 116px; padding-block: 20px; gap: 16px; }
+  .entryText { gap: 8px; }
+  .entryName { font-size: 23px; }
+  .panelContent { padding: 24px; }
+  .panel h3 { font-size: clamp(30px, 2.8vw, 36px); }
+  .detailDate { margin-top: 14px; font-size: 15px; }
+  .description { font-size: 17px; line-height: 1.7; margin-top: 22px; }
+  .description p + p { margin-top: 16px; }
+  .panel h4 { margin: 24px 0 16px; padding-top: 18px; }
+  .panel li { font-size: 16px; line-height: 1.7; }
+  .panel li + li { margin-top: 10px; }
+  .action { margin-top: 32px; }
+}
+@media (min-width: 1101px) and (max-width: 1200px) {
+  .heading { padding-top: 0; }
+  .introduction { margin-top: 0; }
+}

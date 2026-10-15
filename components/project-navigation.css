@@ -1,0 +1,26 @@
+/* Native same-origin navigation: unsupported browsers keep ordinary anchors.
+   Only homepage previews and case-study documents import this opt-in. */
+@view-transition { navigation: auto; }
+.premiere-feedqr-title { view-transition-name: premiere-feedqr-title; }
+.premiere-lion-title { view-transition-name: premiere-lion-title; }
+.premiere-feedqr-media { view-transition-name: premiere-feedqr-media; }
+::view-transition-group(premiere-feedqr-media) {
+  animation-duration: 520ms;
+  animation-timing-function: cubic-bezier(.2,.7,.2,1);
+}
+/* Titles crossfade at their native proportions rather than stretching glyphs. */
+::view-transition-group(premiere-feedqr-title),
+::view-transition-group(premiere-lion-title) { animation-duration: 380ms; }
+::view-transition-old(premiere-feedqr-title),
+::view-transition-old(premiere-lion-title),
+::view-transition-new(premiere-feedqr-title),
+::view-transition-new(premiere-lion-title) { width: auto; height: auto; max-width: 100%; animation-duration: 240ms; }
+::view-transition-old(root),
+::view-transition-new(root) { animation-duration: 180ms; }
+/* Phone preview uses a different genuine capture: keep title continuity,
+   without morphing the mobile screenshot into a desktop interface. */
+@media (max-width: 700px) { .premiere-feedqr-media { view-transition-name: none; } }
+@media (prefers-reduced-motion: reduce) {
+  @view-transition { navigation: none; }
+  .premiere-feedqr-title, .premiere-lion-title, .premiere-feedqr-media { view-transition-name: none; }
+}
