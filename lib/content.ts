@@ -27,13 +27,14 @@ export const copy = {
  projectResources:'Acessar o projeto', liveDemo:'Ver aplicação', sourceCode:'Código-fonte', technicalDocumentation:'Documentação técnica', opensNewTab:'abre em nova aba',
  expertise:'COMO EU TRABALHO', expertiseTitle:'Do problema ao produto.', expertiseBody:'Experiência prática com documentação, modelagem, desenvolvimento de interfaces, APIs e persistência de dados. Trabalho com diferentes tecnologias conforme as necessidades do projeto.',
  experienceLabel:'TRAJETÓRIA', experienceTitle:'Experiência além do código.', experienceBody:'Desenvolvimento de software, ensino de tecnologia e atendimento ao público — experiências que ampliaram minha visão sobre sistemas e pessoas.', experienceAction:'Conhecer trajetória',
- contactLabel:'PRÓXIMO PASSO', contactTitle:'Vamos conversar?', contactBody:'Aberto a oportunidades e conversas sobre desenvolvimento de software.', contactAction:'Entrar em contato',
+ contactLabel:'PRÓXIMO PASSO', contactTitle:'Vamos conversar?', contactBody:'Disponível para oportunidades profissionais, colaborações e conversas sobre desenvolvimento de software.', contactAction:'Entrar em contato',
+ contactEmail:'E-mail', contactLinksLabel:'Contatos profissionais', backToTop:'Voltar ao topo',
  footer:'Desenvolvido com atenção aos detalhes.', projectsTitle:'Projetos selecionados.', projectsIntro:'Dois produtos com desafios diferentes de arquitetura, implementação e experiência.',
  aboutLabel:'SOBRE', aboutTitle:'Tecnologia com propósito e execução.', aboutBody:'Sou Lucas Ortiz, desenvolvedor de software com atuação Full Stack. Minha experiência envolve construção de sistemas web, modelagem de dados e integração entre frontend e backend.',
  education:'Formação', educationValue:'Sistemas de Informação — UNOESTE', educationDate:'Em andamento · conclusão prevista para dezembro de 2026', techTitle:'Tecnologias em contexto', techIntro:'Ferramentas utilizadas nos projetos apresentados, não uma lista de proficiências autodeclaradas.',
  expPageTitle:'Uma trajetória em construção.', expPageIntro:'Experiências com desenvolvimento, ensino e serviços ao público.',
  projectOverview:'Visão geral', contribution:'Minha participação', stack:'Tecnologias', gallery:'Produto em imagens', noMedia:'Capturas do Lion Fitness serão adicionadas após a atualização do frontend.', publicApplication:'Aplicação pública', nextProject:'Outro projeto', backProjects:'Todos os projetos',
- resume:'Currículo em preparação', pending:'Informações de contato e currículo serão disponibilizadas após confirmação dos links.',
+ resume:'Currículo em preparação',
  },
  en: {
  nav: { projects:'Projects', about:'About', experience:'Experience', contact:'Contact' },
@@ -47,13 +48,14 @@ export const copy = {
  projectResources:'Access the project', liveDemo:'Live demo', sourceCode:'Source code', technicalDocumentation:'Technical documentation', opensNewTab:'opens in a new tab',
  expertise:'MY APPROACH', expertiseTitle:'From problem to product.', expertiseBody:'Hands-on experience in documentation, modeling, interface development, APIs, and data persistence. I choose technologies based on the needs of each project.',
  experienceLabel:'BACKGROUND', experienceTitle:'Experience beyond code.', experienceBody:'Software development, teaching technology, and public service — experiences that shaped how I think about systems and people.', experienceAction:'Explore experience',
- contactLabel:'NEXT STEP', contactTitle:'Let’s talk.', contactBody:'Open to opportunities and conversations about software development.', contactAction:'Get in touch',
+ contactLabel:'NEXT STEP', contactTitle:'Let’s talk.', contactBody:'Available for professional opportunities, collaborations, and conversations about software development.', contactAction:'Get in touch',
+ contactEmail:'Email', contactLinksLabel:'Professional contacts', backToTop:'Back to top',
  footer:'Built with attention to detail.', projectsTitle:'Selected projects.', projectsIntro:'Two products with different challenges in architecture, implementation, and experience.',
  aboutLabel:'ABOUT', aboutTitle:'Technology with purpose and execution.', aboutBody:'I’m Lucas Ortiz, a Full Stack software developer. My experience includes building web systems, data modeling, and integrating frontend and backend.',
  education:'Education', educationValue:'Information Systems — UNOESTE', educationDate:'In progress · expected graduation December 2026', techTitle:'Technologies in context', techIntro:'Tools used in the projects shown, not a list of self-assessed proficiency levels.',
  expPageTitle:'A career in progress.', expPageIntro:'Experience in development, teaching, and public services.',
  projectOverview:'Overview', contribution:'My contribution', stack:'Technology', gallery:'Product imagery', noMedia:'Lion Fitness screenshots will be added after the frontend update.', publicApplication:'Public application', nextProject:'Another project', backProjects:'All projects',
- resume:'Resume coming soon', pending:'Contact information and resume will be published once the links are confirmed.',
+ resume:'Resume coming soon',
  }
 } as const;
 export const projects = {
